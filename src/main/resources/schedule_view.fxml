@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.team401.fms.controller.ScheduleViewController">
+   <children>
+      <AnchorPane>
+         <children>
+            <TitledPane collapsible="false" prefHeight="200.0" prefWidth="200.0" text="Team List" AnchorPane.bottomAnchor="10.399999999999977" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <TextArea fx:id="teamList" minHeight="300.0" prefHeight="300.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                     </center>
+                     <bottom>
+                        <BorderPane BorderPane.alignment="CENTER">
+                           <right>
+                              <HBox BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="importTeams" mnemonicParsing="false" text="Import Teams">
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" text="Generate WiFi Keys">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </right>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </BorderPane>
+                     </bottom>
+                     <top>
+                        <Label text="List teams at event, one per line." BorderPane.alignment="TOP_LEFT">
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </Label>
+                     </top>
+                  </BorderPane>
+               </content>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </TitledPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane HBox.hgrow="ALWAYS">
+         <children>
+            <TitledPane collapsible="false" text="Match Schedule" AnchorPane.bottomAnchor="10.399999999999977" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <content>
+                  <BorderPane>
+                     <center>
+                        <TableView fx:id="schedule" editable="true" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Match #" />
+                            <TableColumn prefWidth="75.0" text="Blue 1" />
+                              <TableColumn prefWidth="75.0" text="Blue 2" />
+                              <TableColumn prefWidth="75.0" text="Blue 3" />
+                              <TableColumn prefWidth="75.0" text="Red 1" />
+                              <TableColumn prefWidth="75.0" text="Red 2" />
+                              <TableColumn prefWidth="75.0" text="Red 3" />
+                              <TableColumn prefWidth="75.0" text="Played" />
+                          </columns>
+                        </TableView>
+                     </center>
+                     <bottom>
+                        <VBox BorderPane.alignment="CENTER">
+                           <children>
+                              <BorderPane>
+                                 <left>
+                                    <Button fx:id="deleteMatch" mnemonicParsing="false" onAction="#onDeleteMatch" text="Delete Selected Match" BorderPane.alignment="CENTER" />
+                                 </left>
+                                 <right>
+                                    <Button fx:id="addMatch" mnemonicParsing="false" onAction="#onAddMatch" text="Add New Match" BorderPane.alignment="CENTER" />
+                                 </right>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </BorderPane>
+                              <BorderPane>
+                                 <left>
+                                    <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <Button fx:id="importSchedule" mnemonicParsing="false" text="Import Schedule">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="genRandomSchedule" mnemonicParsing="false" text="Generate Random Schedule">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets right="20.0" />
+                                       </padding>
+                                    </HBox>
+                                 </left>
+                                 <right>
+                                    <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <Button fx:id="cancel" mnemonicParsing="false" onAction="#onCancel" text="Discard and Exit">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="save" mnemonicParsing="false" onAction="#onSave" text="Save and Exit">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets left="20.0" />
+                                       </padding>
+                                    </HBox>
+                                 </right>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </BorderPane>
+                           </children>
+                        </VBox>
+                     </bottom>
+                  </BorderPane>
+               </content>
+            </TitledPane>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>
